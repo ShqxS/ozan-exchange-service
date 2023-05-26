@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "8d62b177-f1a2-4251-8fbd-58a080e25429",
+		"name": "OzanExchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Exchange Rates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"base\": \"TRY\",\n        \"target\": \"USD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange/rate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange",
+						"rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Exchanges",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"page\": 0,\n  \"size\": 5,\n  \"transactionDateRange\": {\n      \"startDate\": \"2023-05-23T15:31:38.225\",\n      \"endDate\": \"2023-06-15T15:31:38.225\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2022-08-04T23:28:27.923",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "2022-08-04T23:28:27.923",
+							"disabled": true
+						},
+						{
+							"key": "transactionId",
+							"value": "asdasd",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exchange",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"source\": \"TRY\",\n        \"target\": \"EUR\",\n        \"amount\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

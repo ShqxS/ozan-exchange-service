@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: ozan-exchange-service
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_URI:localhost:27017}
+      database: currency
+  cloud:
+    openfeign:
+      client:
+        config:
+          currency-api-layer:
+            defaultRequestHeaders:
+              apikey:
+                - ${ACCESS_TOKEN:5rDEQ4l0hbT4ogyN6j7Gjd7LI6pDjVKd}
+          default:
+            connectTimeout: 60000
+            readTimeout: 60000
+
+microservice:
+  currencyApiLayer: https://api.apilayer.com/
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /documentation
+  api-docs:
+    enabled: true
+
+logging:
+  level:
+    com.ozan.exchange: INFO
+    org.springframework: INFO
+    org.springframework.web: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+    console: "%date{'yyyy-MM-dd HH:mm:ss,SSS'} %-5level [%32X{CORRELATION_ID}] --- [%7.7thread{7}] %-40.40logger:%-5.5line: %msg%n"
